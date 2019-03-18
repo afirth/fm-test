@@ -3,7 +3,6 @@ package gbdx
 import (
 	"bytes"
 	"encoding/json"
-	"log"
 	"os"
 	"strings"
 	"testing"
@@ -39,12 +38,20 @@ func TestUnmarshalMarshal(t *testing.T) {
 func TestNewCatalogSearch(t *testing.T) {
 	skipUnlessE2E(t)
 	wkt := `POLYGON ((-122.41189956665039 37.59415685597818, -122.41189956665039 37.64460175855099, -122.34529495239259 37.64460175855099, -122.34529495239259 37.59415685597818, -122.41189956665039 37.59415685597818))`
+
+	// Get an authed client
 	client, err := NewClient(oauth2.NoContext, os.Getenv("USERNAME"), os.Getenv("PASSWORD"))
 	if err != nil {
-		log.Fatalf("unable to create oauth2 http client (are USERNAME and PASSWORD in env?): %+v", err)
+		t.Errorf("unable to create oauth2 http client (are USERNAME and PASSWORD in env?): %+v", err)
 	}
-	c, err := NewCatalogSearch(client, wkt)
 
+	// exec a search
+	c, err := NewCatalogSearch(client, wkt)
+	if err != nil {
+		t.Errorf("unable to execute search: %v", err)
+	}
+
+	// basic sanity check of results
 	if l := len(c.response.Results); l <= 2 {
 		t.Errorf("Expected more than 2 results, got %d", l)
 	}
