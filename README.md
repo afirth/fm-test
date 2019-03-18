@@ -1,6 +1,17 @@
 # GBDX Client
 
-[![Build Status](https://travis-ci.org/afirth/fm-test.svg?branch=master)](https://travis-ci.org/afirth/fm-test) ![Docker Badge](https://img.shields.io/docker/build/afirth/fm-test.svg) [![](https://godoc.org/github.com/afirth/fm-test?status.svg)](http://godoc.org/github.com/afirth/fm-test)
+## master status
+
+[![Build Status](https://travis-ci.org/afirth/fm-test.svg?branch=master)](https://travis-ci.org/afirth/fm-test) ![Docker Badge](https://img.shields.io/docker/cloud/build/afirth/fm-test.svg) ![Code Quality](https://goreportcard.com/badge/github.com/afirth/fm-test)
+
+## godoc
+
+- [![](https://godoc.org/github.com/afirth/fm-test?status.svg)](http://godoc.org/github.com/afirth/fm-test/api) api
+- [![](https://godoc.org/github.com/afirth/fm-test?status.svg)](http://godoc.org/github.com/afirth/fm-test/gbdx) gbdx
+- [![](https://godoc.org/github.com/afirth/fm-test?status.svg)](http://godoc.org/github.com/afirth/fm-test/transcode) transcode
+- [![](https://godoc.org/github.com/afirth/fm-test?status.svg)](http://godoc.org/github.com/afirth/fm-test) main
+
+## Author
 
 @afirth 2019
 
