@@ -1,0 +1,21 @@
+language: go
+
+matrix:
+  include:
+  - go: "1.11.x"
+  - go: "1.12.x"
+
+# enable support for modules even though we're in the GOPATH on travis
+env:
+  - GO111MODULE=on
+
+install: true
+
+jobs:
+  include:
+    - stage: test
+      script: make test
+    - stage: make test-e2e
+      script: make test-e2e
+    - stage: build-final #uses vendored deps
+      script: make build-final SHELL=sh
