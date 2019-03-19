@@ -5,11 +5,11 @@ MAKEFLAGS += --warn-undefined-variables
 SHELL = /bin/bash
 .SUFFIXES:
 
-REPO_NAME ?= $(notdir $(CURDIR))
+SVC_NAME ?= $(notdir $(CURDIR))
 PORT ?= 8080
 VERSION ?= $(shell cat VERSION)
 #https://github.com/golang/go/issues/23439#issuecomment-433118300
-BINPATH ?= ./bin/$(REPO_NAME)
+BINPATH ?= $(CURDIR)/bin/app
 
 all: build test docker-build
 
@@ -36,7 +36,7 @@ up: check-credentials build
 	HTTPADDR=:$(PORT) $(BINPATH)
 
 docker-build:
-	docker build -t $(REPO_NAME):$(VERSION) .
+	docker build -t $(SVC_NAME):$(VERSION) .
 
 docker-up: check-credentials
 	@docker run \
@@ -44,7 +44,7 @@ docker-up: check-credentials
 		-e PASSWORD=$(PASSWORD) \
 		-e HTTPADDR=':$(PORT)' \
 		-p $(PORT):$(PORT) \
-		--rm $(REPO_NAME):$(VERSION)
+		--rm $(SVC_NAME):$(VERSION)
 	@Service is running on localhost:$(PORT)
 
 docker-compose-up: check-credentials
@@ -52,14 +52,14 @@ docker-compose-up: check-credentials
 	@Service is running on localhost:$(PORT)
 
 kube-secret: check-credentials
-	@kubectl create secret generic $(REPO_NAME)-secret \
+	@kubectl create secret generic $(SVC_NAME)-secret \
 --from-literal=username=$(USERNAME) \
 --from-literal=password=$(PASSWORD) || echo "Secret exists"
 
 kube-up:
 	kubectl apply -f manifests/
-	@set +e kubectl config current-context | grep -n minikube && echo service will be available at: `minikube service $(REPO_NAME) --url`
-	@echo 'if using port forwarding: kubectl port forward svc/$(REPO_NAME) $(PORT):$(PORT)'
+	@set +e kubectl config current-context | grep -n minikube && echo service will be available at: `minikube service $(SVC_NAME) --url`
+	@echo 'if using port forwarding: kubectl port forward svc/$(SVC_NAME) $(PORT):$(PORT)'
 	
 # ignore ./vendor with xargs until https://github.com/golang/lint/issues/320
 lint:
