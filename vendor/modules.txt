@@ -1,3 +1,9 @@
+# github.com/afirth/fm-test/api v0.0.1 => ./pkg/api
+github.com/afirth/fm-test/api
+# github.com/afirth/fm-test/gbdx v0.0.1 => ./pkg/gbdx
+github.com/afirth/fm-test/gbdx
+# github.com/afirth/fm-test/transcode v0.0.1 => ./pkg/transcode
+github.com/afirth/fm-test/transcode
 # github.com/caarlos0/env v3.5.0+incompatible
 github.com/caarlos0/env
 # github.com/golang/protobuf v1.2.0
