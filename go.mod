@@ -3,9 +3,15 @@ module github.com/afirth/fm-test
 go 1.12
 
 require (
+	github.com/afirth/fm-test/api v0.0.1
+	github.com/afirth/fm-test/gbdx v0.0.1 // indirect
+	github.com/afirth/fm-test/transcode v0.0.1 // indirect
 	github.com/caarlos0/env v3.5.0+incompatible
 	github.com/gorilla/mux v1.7.0
-	github.com/paulmach/orb v0.1.3
-	github.com/stretchr/testify v1.3.0 // indirect
-	golang.org/x/oauth2 v0.0.0-20190226205417-e64efc72b421
 )
+
+replace github.com/afirth/fm-test/api v0.0.1 => ./pkg/api
+
+replace github.com/afirth/fm-test/transcode v0.0.1 => ./pkg/transcode
+
+replace github.com/afirth/fm-test/gbdx v0.0.1 => ./pkg/gbdx

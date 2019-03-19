@@ -21,12 +21,12 @@ test-e2e: check-credentials
 
 # builds ignoring vendor for local dev, then updates
 build:
-	GOMOD111=on go build -ldflags "-X main.Version=$(VERSION)" -o $(BINPATH)
 	go mod tidy
 	go mod vendor
+	cd cmd/app/ && GOMOD111=on go build -ldflags "-X main.Version=$(VERSION)" -o $(BINPATH)
 
 build-final:
-	GOOS=linux GOARCH=amd64 GO111MOD=on \
+	cd cmd/app && GOOS=linux GOARCH=amd64 GO111MOD=on \
 		go build \
 			-mod=vendor \
 			-ldflags "-w -s -X main.Version=$(VERSION)" \
