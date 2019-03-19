@@ -1,17 +1,17 @@
 # GBDX Client
 
-## master status
+#### master status
 
-[![Build Status](https://travis-ci.org/afirth/fm-test.svg?branch=master)](https://travis-ci.org/afirth/fm-test) ![Docker Badge](https://img.shields.io/docker/cloud/build/afirth/fm-test.svg) ![Code Quality](https://goreportcard.com/badge/github.com/afirth/fm-test)
+[![Build Status](https://travis-ci.org/afirth/fm-test.svg?branch=master)](https://travis-ci.org/afirth/fm-test) [![Docker Badge](https://img.shields.io/docker/cloud/build/afirth/fm-test.svg)](https://cloud.docker.com/repository/docker/afirth/fm-test) [![Code Quality](https://goreportcard.com/badge/github.com/afirth/fm-test)](https://goreportcard.com/report/github.com/afirth/fm-test)
 
-## godoc
+#### godoc
 
-- [![](https://godoc.org/github.com/afirth/fm-test?status.svg)](http://godoc.org/github.com/afirth/fm-test/api) api
-- [![](https://godoc.org/github.com/afirth/fm-test?status.svg)](http://godoc.org/github.com/afirth/fm-test/gbdx) gbdx
-- [![](https://godoc.org/github.com/afirth/fm-test?status.svg)](http://godoc.org/github.com/afirth/fm-test/transcode) transcode
-- [![](https://godoc.org/github.com/afirth/fm-test?status.svg)](http://godoc.org/github.com/afirth/fm-test) main
+- [![api](https://godoc.org/github.com/afirth/fm-test?status.svg)](http://godoc.org/github.com/afirth/fm-test/api) fm-test/api
+- [![gbdx](https://godoc.org/github.com/afirth/fm-test?status.svg)](http://godoc.org/github.com/afirth/fm-test/gbdx) fmt-test/gbdx
+- [![transcode](https://godoc.org/github.com/afirth/fm-test?status.svg)](http://godoc.org/github.com/afirth/fm-test/transcode) fm-test/transcode
+- [![fm-test](https://godoc.org/github.com/afirth/fm-test?status.svg)](http://godoc.org/github.com/afirth/fm-test) fm-test
 
-## Author
+### Author
 
 @afirth 2019
 
@@ -44,6 +44,8 @@ make up
 ```
 make docker-compose-up
 ```
+
+Note: this will not automatically rebuild. Run `docker-build` if required (or `docker-compose up --build`)
 
 ## Running in kubernetes
 
