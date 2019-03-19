@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: fm-test
-        image: afirth/fm-test:0.0.1
+        image: afirth/fm-test:0.0.2
         imagePullPolicy: IfNotPresent
         ports:
         - name: http

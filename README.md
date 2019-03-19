@@ -52,6 +52,10 @@ make kube-secret
 make kube-up
 ```
 
+### Scaling replicas
+
+//TODO
+
 ### Note about images in kubernetes
 
 By default, kube deployment pulls from dockerhub image. To use a local image:
@@ -59,7 +63,7 @@ By default, kube deployment pulls from dockerhub image. To use a local image:
 ```
 eval $(minikube docker-env)
 make docker-build
-docker tag fm-test afirth/fm-test:0.0.1
+docker tag fm-test afirth/fm-test:<version>
 ```
 
 # Building and testing
