@@ -4,8 +4,8 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/afirth/fm-test/gbdx"
-	"github.com/afirth/fm-test/transcode"
+	"github.com/afirth/fm-test/pkg/gbdx"
+	"github.com/afirth/fm-test/pkg/transcode"
 )
 
 // Please excuse the logging - I would add nice json log handlers for prod, e.g zap or whatever you're using

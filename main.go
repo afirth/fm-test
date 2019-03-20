@@ -9,7 +9,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/afirth/fm-test/api"
+	"github.com/afirth/fm-test/pkg/api"
 
 	"github.com/caarlos0/env" // clean env parsing
 	"github.com/gorilla/mux"  // because YareGNI
