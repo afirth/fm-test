@@ -23,10 +23,10 @@ test-e2e: check-credentials
 build:
 	go mod tidy
 	go mod vendor
-	cd cmd/app/ && GOMOD111=on go build -ldflags "-X main.Version=$(VERSION)" -o $(BINPATH)
+	GOMOD111=on go build -ldflags "-X main.Version=$(VERSION)" -o $(BINPATH)
 
 build-final:
-	cd cmd/app && GOOS=linux GOARCH=amd64 GO111MOD=on \
+	GOOS=linux GOARCH=amd64 GO111MOD=on \
 		go build \
 			-mod=vendor \
 			-ldflags "-w -s -X main.Version=$(VERSION)" \
@@ -58,8 +58,8 @@ kube-secret: check-credentials
 
 kube-up:
 	kubectl apply -f manifests/
-	@set +e kubectl config current-context | grep -n minikube && echo service will be available at: `minikube service $(SVC_NAME) --url`
-	@echo 'if using port forwarding: kubectl port forward svc/$(SVC_NAME) $(PORT):$(PORT)'
+	@(set +e kubectl config current-context | grep -n minikube && echo service will be available at: `minikube service $(SVC_NAME) --url`) || echo
+	@echo 'if using port forwarding: kubectl port-forward svc/$(SVC_NAME) $(PORT):$(PORT)'
 	
 # ignore ./vendor with xargs until https://github.com/golang/lint/issues/320
 lint:

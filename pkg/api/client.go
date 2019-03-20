@@ -3,7 +3,7 @@ package api
 import (
 	"net/http"
 
-	"github.com/afirth/fm-test/gbdx"
+	"github.com/afirth/fm-test/pkg/gbdx"
 	"golang.org/x/oauth2"
 )
 

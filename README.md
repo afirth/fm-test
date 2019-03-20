@@ -56,7 +56,9 @@ make kube-up
 
 ### Scaling replicas
 
-//TODO
+```
+kubectl scale deployment fm-test --replicas=<n>
+```
 
 ### Note about images in kubernetes
 
